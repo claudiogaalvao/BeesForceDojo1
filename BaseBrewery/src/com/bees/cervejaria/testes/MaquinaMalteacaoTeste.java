@@ -15,23 +15,11 @@ public class MaquinaMalteacaoTeste {
 
     @BeforeEach
     public void inicializa() {
-
+        maquina = new MaquinaMalteacao();
     }
 
-//    public static void main(String[] args) {
-//        try {
-//            MaquinaMalteacao maquina = new MaquinaMalteacao();
-//
-//            deveDevolverGraoComEstadoUmido(maquina);
-//
-//            System.out.println("MaquinaMalteacaoTeste - SUCESSO");
-//        } catch (Exception e) {
-//            System.out.println("MaquinaMalteacaoTeste - ERRO " + e.getMessage());
-//        }
-//    }
-
     @Test
-    public static void deveDevolverGraoComEstadoUmido(MaquinaMalteacao maquina) {
+    public void testarUmidecerGraoInNatura() {
         //given
         Grao graoInNatura = new Grao(TipoGrao.CEVADA);
         graoInNatura.setEstado(EstadoGrao.IN_NATURA);
@@ -39,11 +27,23 @@ public class MaquinaMalteacaoTeste {
         Grao graoUmidecido = maquina.umedecer(graoInNatura);
 
         //then
-        assert graoUmidecido.getEstado() == EstadoGrao.UMIDO;
+        Assertions.assertEquals(EstadoGrao.UMIDO, graoUmidecido.getEstado());
     }
 
     @Test
-    public void deveDevolverGraoComEstadoSeco(MaquinaMalteacao maquina) {
+    public void testarUmidecerGraoNaoInNatura() {
+        //given
+        Grao graoInNatura = new Grao(TipoGrao.CEVADA);
+        graoInNatura.setEstado(EstadoGrao.SECO);
+
+        //when
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            maquina.umedecer(graoInNatura);
+        });
+    }
+
+    @Test
+    public void testarSecarGraoUmido() {
         //given
         Grao graoUmidecido = new Grao(TipoGrao.CEVADA);
         graoUmidecido.setEstado(EstadoGrao.UMIDO);
@@ -52,7 +52,19 @@ public class MaquinaMalteacaoTeste {
         Grao graoSeco = maquina.secar(graoUmidecido);
 
         //then
-        assert graoSeco.getEstado() == EstadoGrao.SECO;
+        Assertions.assertEquals(EstadoGrao.SECO, graoSeco.getEstado());
+    }
+
+    @Test
+    public void testarSecarGraoNaoUmido() {
+        //given
+        Grao grao = new Grao(TipoGrao.CEVADA);
+        grao.setEstado(EstadoGrao.IN_NATURA);
+
+        //when
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            maquina.secar(grao);
+        });
     }
 
     @Test
