@@ -12,11 +12,16 @@ public class MaquinaFermentacao implements IFermentacao {
                 && mosto.getTemperatura() <= Constantes.TEMPERATURA_MAXIMA_RESFRIAMENTO_MOSTO) )
             throw new IllegalArgumentException("Mosto deve na faixa de temperatura correta");
 
-
-        for (int dias = 0; dias < Constantes.DIAS_FERMENTACAO; dias++) {
-            // fermentando
+        for (int dias = mosto.getDiasFermentacao(); mosto.getDiasFermentacao() < Constantes.DIAS_FERMENTACAO; dias++) {
+            mosto.setDiasFermentacao(dias);
         }
 
-        return new Cerveja();
+        return pegaCerveja(mosto);
+    }
+
+    private Cerveja pegaCerveja(Mosto mosto){
+        if (!(mosto.getDiasFermentacao() >= Constantes.DIAS_FERMENTACAO))
+            throw new IllegalArgumentException("Mosto precisa ficar em fermentação pelo menos por 7 dias");
+        return new Cerveja(Constantes.VOLUME_TANQUE_FERMENTACAO_LITROS);
     }
 }

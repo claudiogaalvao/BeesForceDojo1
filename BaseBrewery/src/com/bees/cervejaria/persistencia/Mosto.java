@@ -6,6 +6,16 @@ public class Mosto {
     private boolean temLupulo = false;
     private int temperatura = 0;
 
+    public int getDiasFermentacao() {
+        return diasFermentacao;
+    }
+
+    public void setDiasFermentacao(int diasFermentacao) {
+        this.diasFermentacao = diasFermentacao;
+    }
+
+    private int diasFermentacao = 0;
+
     public boolean getFiltrado() {
         return filtrado;
     }
