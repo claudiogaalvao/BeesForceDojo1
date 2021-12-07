@@ -6,7 +6,7 @@ public class Mosto {
     private boolean temLupulo = false;
     private int temperatura = 0;
 
-    public boolean isFiltrado() {
+    public boolean getFiltrado() {
         return filtrado;
     }
 
@@ -14,7 +14,7 @@ public class Mosto {
         this.filtrado = filtrado;
     }
 
-    public boolean isTemLupulo() {
+    public boolean getLupulo() {
         return temLupulo;
     }
 

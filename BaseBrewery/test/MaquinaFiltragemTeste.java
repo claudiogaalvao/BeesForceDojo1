@@ -1,4 +1,3 @@
-import com.bees.cervejaria.maquinas.MaquinaBrassagem;
 import com.bees.cervejaria.maquinas.MaquinaFiltragem;
 import com.bees.cervejaria.persistencia.EstadoMalte;
 import com.bees.cervejaria.persistencia.Malte;
@@ -17,13 +16,33 @@ public class MaquinaFiltragemTeste {
     }
 
     @Test
-    public void quandoFiltrarReceberMalte_DeveRetornarMosto() {
+    public void quandoFiltrarReceberMalteCozido_DeveRetornarMosto() {
         //given
         Malte malte = new Malte(EstadoMalte.COZIDO);
         //when
         Mosto mostoFiltrado = maquina.filtrar(malte);
         //then
         Assertions.assertNotNull(mostoFiltrado);
+    }
+
+    @Test
+    public void quandoFiltrarNaoReceberMalteCozido_DeveLancarExcecao() {
+        //given
+        Malte malte = new Malte(EstadoMalte.MOIDO);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            maquina.filtrar(malte);
+        });
+    }
+
+    @Test
+    public void quandoFiltrarReceberMalteCozido_DeveRetornarMostoComEstadoFiltrado() {
+        //given
+        Malte malte = new Malte(EstadoMalte.COZIDO);
+        //when
+        Mosto mostoFiltrado = maquina.filtrar(malte);
+        //then
+        Assertions.assertTrue(mostoFiltrado.getFiltrado());
     }
 
 }
