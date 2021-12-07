@@ -4,6 +4,7 @@ import com.bees.cervejaria.interfaces.IMalteacao;
 import com.bees.cervejaria.persistencia.EstadoGrao;
 import com.bees.cervejaria.persistencia.Grao;
 import com.bees.cervejaria.persistencia.Malte;
+import com.bees.cervejaria.persistencia.TipoMalte;
 
 public class MaquinaMalteacao implements IMalteacao {
 
@@ -27,7 +28,11 @@ public class MaquinaMalteacao implements IMalteacao {
 
     @Override
     public Malte torrar(Grao grao) {
-        return null;
+        if (grao.getEstado() != EstadoGrao.SECO)
+            throw new IllegalArgumentException("grao deveria esta em SECO");
+
+        Malte malte = new Malte(TipoMalte.TORRADO);
+        return malte;
     }
 
 }

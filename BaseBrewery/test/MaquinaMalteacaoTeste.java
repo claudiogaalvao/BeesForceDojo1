@@ -1,5 +1,3 @@
-package com.bees.cervejaria.testes;
-
 import com.bees.cervejaria.maquinas.MaquinaMalteacao;
 import com.bees.cervejaria.persistencia.EstadoGrao;
 import com.bees.cervejaria.persistencia.Grao;
@@ -78,6 +76,18 @@ public class MaquinaMalteacaoTeste {
 
         //assert
         Assertions.assertNotNull(malte);
+    }
+
+    @Test
+    public void deveDevolverMalteComEstadoNaoTorrado() {
+        //given
+        Grao grao = new Grao(TipoGrao.CEVADA);
+        grao.setEstado(EstadoGrao.TORRADO);
+
+        //when
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            maquina.torrar(grao);
+        });
     }
 
 }
