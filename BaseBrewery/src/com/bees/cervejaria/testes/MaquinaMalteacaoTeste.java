@@ -3,23 +3,34 @@ package com.bees.cervejaria.testes;
 import com.bees.cervejaria.maquinas.MaquinaMalteacao;
 import com.bees.cervejaria.persistencia.EstadoGrao;
 import com.bees.cervejaria.persistencia.Grao;
+import com.bees.cervejaria.persistencia.Malte;
 import com.bees.cervejaria.persistencia.TipoGrao;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MaquinaMalteacaoTeste {
 
-    public static void main(String[] args) {
-        try {
-            MaquinaMalteacao maquina = new MaquinaMalteacao();
+    MaquinaMalteacao maquina;
 
-            deveDevolverGraoComEstadoUmido(maquina);
+    @BeforeEach
+    public void inicializa() {
 
-            System.out.println("MaquinaMalteacaoTeste - SUCESSO");
-        } catch (Exception e) {
-            System.out.println("MaquinaMalteacaoTeste - ERRO " + e.getMessage());
-        }
     }
- @Test
+
+//    public static void main(String[] args) {
+//        try {
+//            MaquinaMalteacao maquina = new MaquinaMalteacao();
+//
+//            deveDevolverGraoComEstadoUmido(maquina);
+//
+//            System.out.println("MaquinaMalteacaoTeste - SUCESSO");
+//        } catch (Exception e) {
+//            System.out.println("MaquinaMalteacaoTeste - ERRO " + e.getMessage());
+//        }
+//    }
+
+    @Test
     public static void deveDevolverGraoComEstadoUmido(MaquinaMalteacao maquina) {
         //given
         Grao graoInNatura = new Grao(TipoGrao.CEVADA);
@@ -44,8 +55,17 @@ public class MaquinaMalteacaoTeste {
         assert graoSeco.getEstado() == EstadoGrao.SECO;
     }
 
+    @Test
     public void deveDevolverMalteComEstadoTorrado() {
+        //given
+        Grao graoSeco = new Grao(TipoGrao.CEVADA);
+        graoSeco.setEstado(EstadoGrao.SECO);
 
+        //when
+        Malte malte = maquina.torrar(graoSeco);
+
+        //assert
+        Assertions.assertNotNull(malte);
     }
 
 }
