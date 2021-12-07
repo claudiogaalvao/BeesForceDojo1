@@ -1,13 +1,14 @@
 package com.bees.cervejaria.interfaces;
 
 import com.bees.cervejaria.persistencia.Grao;
+import com.bees.cervejaria.persistencia.Malte;
 
 public interface IMalteacao {
 
-    void umedecer(Grao grao);
+    Grao umedecer(Grao grao);
 
-    void secar(Grao grao);
+    Grao secar(Grao grao);
 
-    void torrar(Grao grao);
+    Malte torrar(Grao grao);
 
 }
