@@ -10,7 +10,7 @@ import java.util.List;
 public class MaquinaEnvase implements IEnvase {
 
     @Override
-    public Embalagem encher(Cerveja cerveja) {
+    public List<Embalagem> encher(Cerveja cerveja) {
         int quantidadeCerveja = cerveja.getQuantidadeLitros();
         return null;
     }
