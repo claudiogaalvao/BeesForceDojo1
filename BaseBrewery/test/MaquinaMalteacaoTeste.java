@@ -17,7 +17,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void testarUmidecerGraoInNatura() {
+    public void quandoUmidecerReceberGraoInNatura_DeveRetornarGraoUmido() {
         //given
         Grao graoInNatura = new Grao(TipoGrao.CEVADA);
         graoInNatura.setEstado(EstadoGrao.IN_NATURA);
@@ -29,7 +29,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void testarUmidecerGraoNaoInNatura() {
+    public void quandoUmidecerNaoReceberGraoInNatura_DeveLancarExcecao() {
         //given
         Grao graoInNatura = new Grao(TipoGrao.CEVADA);
         graoInNatura.setEstado(EstadoGrao.SECO);
@@ -41,7 +41,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void testarSecarGraoUmido() {
+    public void quandoSecarReceberGraoUmido_DeveRetornarGraoSeco() {
         //given
         Grao graoUmidecido = new Grao(TipoGrao.CEVADA);
         graoUmidecido.setEstado(EstadoGrao.UMIDO);
@@ -54,7 +54,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void testarSecarGraoNaoUmido() {
+    public void quandoSecarNaoReceberGraoUmido_DeveLancarExcecao() {
         //given
         Grao grao = new Grao(TipoGrao.CEVADA);
         grao.setEstado(EstadoGrao.IN_NATURA);
@@ -66,7 +66,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void deveDevolverMalteComEstadoTorrado() {
+    public void quandoTorrarReceberGraoSeco_DeveRetornarMalte() {
         //given
         Grao graoSeco = new Grao(TipoGrao.CEVADA);
         graoSeco.setEstado(EstadoGrao.SECO);
@@ -79,7 +79,7 @@ public class MaquinaMalteacaoTeste {
     }
 
     @Test
-    public void deveDevolverMalteComEstadoNaoTorrado() {
+    public void quandoTorrarNaoReceberGraoSeco_DeveLancarExcecao() {
         //given
         Grao grao = new Grao(TipoGrao.CEVADA);
         grao.setEstado(EstadoGrao.TORRADO);

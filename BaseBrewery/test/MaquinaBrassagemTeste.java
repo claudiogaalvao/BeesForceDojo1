@@ -27,7 +27,7 @@ public class MaquinaBrassagemTeste {
     }
 
     @Test
-    public void quandoCozinharReceberMalteNaoMoido_DeveLancarExcessao() {
+    public void quandoCozinharNaoReceberMalteMoido_DeveLancarExcessao() {
         //given
         Malte malte = new Malte(EstadoMalte.TORRADO);
 
