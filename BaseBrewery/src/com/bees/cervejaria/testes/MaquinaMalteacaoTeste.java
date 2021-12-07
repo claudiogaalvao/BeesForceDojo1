@@ -20,18 +20,15 @@ public class MaquinaMalteacaoTeste {
     }
 
     public static void deveDevolverGraoComEstadoUmido(MaquinaMalteacao maquina) {
-        // given
         Grao graoInNatura = new Grao(TipoGrao.CEVADA);
-
-        // when
-        Grao graoUmido = maquina.umedecer(graoInNatura);
-
-        // then
-        assert graoUmido.getEstado() == EstadoGrao.UMIDO;
+        Grao graoUmidecido = maquina.umedecer(graoInNatura);
+        assert graoUmidecido.getEstado() == EstadoGrao.UMIDO;
     }
 
-    public void deveDevolverGraoComEstadoSeco() {
-
+    public void deveDevolverGraoComEstadoSeco(MaquinaMalteacao maquina) {
+        Grao graoUmidecido = new Grao(TipoGrao.CEVADA);
+        Grao graoSeco = maquina.secar(graoUmidecido);
+        assert graoSeco.getEstado() == EstadoGrao.SECO;
     }
 
     public void deveDevolverMalteComEstadoTorrado() {
