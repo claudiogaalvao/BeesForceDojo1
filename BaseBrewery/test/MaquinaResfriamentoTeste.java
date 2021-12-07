@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.bees.cervejaria.persistencia.Constantes.TEMPERATURA_FERVURA_MOSTO;
+
 public class MaquinaResfriamentoTeste {
 
     MaquinaResfriamento maquina;
@@ -17,16 +19,15 @@ public class MaquinaResfriamentoTeste {
     @Test
     public void quandoResfriarMostoFiltrado_DeveReduzirTemperatura() {
         // given
-        int temperaturaInicial = 100;
         Mosto mosto = new Mosto();
-        mosto.setTemperatura(temperaturaInicial);
+        mosto.setTemperatura(TEMPERATURA_FERVURA_MOSTO);
         mosto.setFiltrado(true);
 
         // when
         Mosto mostoResultado = maquina.resfriar(mosto);
 
         // then
-        Assertions.assertTrue(mostoResultado.getTemperatura() < temperaturaInicial);
+        Assertions.assertTrue(mostoResultado.getTemperatura() < TEMPERATURA_FERVURA_MOSTO);
     }
 
     @Test

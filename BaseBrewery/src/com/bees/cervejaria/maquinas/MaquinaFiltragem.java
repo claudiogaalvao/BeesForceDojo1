@@ -7,6 +7,17 @@ import com.bees.cervejaria.persistencia.Mosto;
 
 public class MaquinaFiltragem implements IFiltragem {
 
+    public void executar(Malte malte){
+        new Thread(){
+            @Override
+            public void run(){
+                filtrar(malte);
+
+            }
+        }.start();
+    }
+
+
     @Override
     public Mosto filtrar(Malte malte) {
         if (malte.getEstado() != EstadoMalte.COZIDO)
