@@ -1,6 +1,10 @@
 package com.bees.cervejaria.persistencia;
 
 public class Malte {
+    private TipoMalte tipo;
+    private boolean temEnzima;
+    private boolean temLevedura;
+
     public Malte(TipoMalte tipo) {
         this.tipo = tipo;
     }
@@ -10,10 +14,6 @@ public class Malte {
         this.temEnzima = temEnzima;
         this.temLevedura = temLevedura;
     }
-
-    private TipoMalte tipo;
-    private boolean temEnzima;
-    private boolean temLevedura;
 
     public TipoMalte getTipo() {
         return tipo;

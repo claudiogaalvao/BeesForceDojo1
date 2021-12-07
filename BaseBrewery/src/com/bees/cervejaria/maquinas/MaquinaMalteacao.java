@@ -1,10 +1,10 @@
-package com.bees.cervejaria;
+package com.bees.cervejaria.maquinas;
 
 import com.bees.cervejaria.interfaces.IMalteacao;
 import com.bees.cervejaria.persistencia.Grao;
 import com.bees.cervejaria.persistencia.Malte;
 
-public class Processo implements IMalteacao{
+public class MaquinaMalteacao implements IMalteacao {
 
     @Override
     public Grao umedecer(Grao grao) {
@@ -20,4 +20,5 @@ public class Processo implements IMalteacao{
     public Malte torrar(Grao grao) {
         return null;
     }
+
 }
