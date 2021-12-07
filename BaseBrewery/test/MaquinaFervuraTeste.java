@@ -1,5 +1,6 @@
 import com.bees.cervejaria.maquinas.MaquinaBrassagem;
 import com.bees.cervejaria.maquinas.MaquinaFervura;
+import com.bees.cervejaria.persistencia.Constantes;
 import com.bees.cervejaria.persistencia.Mosto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,7 +38,7 @@ public class MaquinaFervuraTeste {
         Mosto mostoRetornado = maquina.ferver(mosto);
 
         //then
-        Assertions.assertTrue(mostoRetornado.getTemperatura() >= 100);
+        Assertions.assertTrue(mostoRetornado.getTemperatura() >= Constantes.TEMPERATURA_FERVURA_MOSTO);
     }
 
     @Test
