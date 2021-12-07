@@ -16,4 +16,11 @@ public class Grao  {
         this.tipo = tipo;
     }
 
+    public EstadoGrao getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoGrao estado) {
+        this.estado = estado;
+    }
 }
