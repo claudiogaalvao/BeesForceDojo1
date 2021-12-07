@@ -1,26 +1,26 @@
 package com.bees.cervejaria.persistencia;
 
 public class Malte {
-    private TipoMalte tipo;
+    private EstadoMalte estado;
     private boolean temEnzima;
     private boolean temLevedura;
 
-    public Malte(TipoMalte tipo) {
-        this.tipo = tipo;
+    public Malte(EstadoMalte tipo) {
+        this.estado = tipo;
     }
 
-    public Malte(TipoMalte tipo, boolean temEnzima, boolean temLevedura) {
-        this.tipo = tipo;
+    public Malte(EstadoMalte estado, boolean temEnzima, boolean temLevedura) {
+        this.estado = estado;
         this.temEnzima = temEnzima;
         this.temLevedura = temLevedura;
     }
 
-    public TipoMalte getTipo() {
-        return tipo;
+    public EstadoMalte getEstado() {
+        return estado;
     }
 
-    public void setTipo(TipoMalte tipo) {
-        this.tipo = tipo;
+    public void setEstado(EstadoMalte estado) {
+        this.estado = estado;
     }
 
     public boolean getTemEnzima() {

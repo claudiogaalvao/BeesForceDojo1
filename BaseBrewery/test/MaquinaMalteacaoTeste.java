@@ -89,5 +89,4 @@ public class MaquinaMalteacaoTeste {
             maquina.torrar(grao);
         });
     }
-
 }

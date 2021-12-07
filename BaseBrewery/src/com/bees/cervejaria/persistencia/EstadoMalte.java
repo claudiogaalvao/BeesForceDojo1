@@ -1,5 +1,5 @@
 package com.bees.cervejaria.persistencia;
 
-public enum TipoMalte {
+public enum EstadoMalte {
     TORRADO, MOIDO, FILTRADO, COZIDO;
 }
