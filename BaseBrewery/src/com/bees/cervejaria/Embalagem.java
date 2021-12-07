@@ -1,4 +1,4 @@
-package com.bees.brewery;
+package com.bees.cervejaria;
 
 public abstract class Embalagem {
 

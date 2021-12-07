@@ -1,9 +1,4 @@
-package com.bees.brewery;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+package com.bees.cervejaria;
 
 public class Main {
 

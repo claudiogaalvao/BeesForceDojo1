@@ -1,4 +1,4 @@
-package com.bees.brewery;
+package com.bees.cervejaria;
 
 import javax.swing.*;
 import java.awt.*;
