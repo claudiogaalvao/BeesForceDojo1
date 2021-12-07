@@ -15,7 +15,7 @@ public class MaquinaBrassagemTeste {
     }
 
     @Test
-    public void testarCozinharMalte(){
+    public void quandoCozinharReceberMalteMoido_DeveRetornarMalteCozido(){
         //given
         Malte malte = new Malte(EstadoMalte.MOIDO);
 
@@ -24,8 +24,16 @@ public class MaquinaBrassagemTeste {
 
         //then
         Assertions.assertEquals(EstadoMalte.COZIDO, malteRetornado.getEstado());
+    }
 
+    @Test
+    public void quandoCozinharReceberMalteNaoMoido_DeveLancarExcessao() {
+        //given
+        Malte malte = new Malte(EstadoMalte.TORRADO);
 
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            maquina.cozinhar(malte);
+        });
     }
 }
 

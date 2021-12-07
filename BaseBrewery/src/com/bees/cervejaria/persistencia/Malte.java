@@ -9,10 +9,12 @@ public class Malte {
         this.estado = tipo;
     }
 
-    public Malte(EstadoMalte estado, boolean temEnzima, boolean temLevedura) {
-        this.estado = estado;
-        this.temEnzima = temEnzima;
-        this.temLevedura = temLevedura;
+    public void ativaEnzima() {
+        this.temEnzima = true;
+    }
+
+    public void ativaLevedura() {
+        this.temLevedura = true;
     }
 
     public EstadoMalte getEstado() {
@@ -27,15 +29,7 @@ public class Malte {
         return temEnzima;
     }
 
-    public void setTemEnzima(boolean temEnzima) {
-        this.temEnzima = temEnzima;
-    }
-
     public boolean getTemLevedura() {
         return temLevedura;
-    }
-
-    public void setTemLevedura(boolean temLevedura) {
-        this.temLevedura = temLevedura;
     }
 }
