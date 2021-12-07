@@ -5,15 +5,15 @@ public class Malte {
         this.tipo = tipo;
     }
 
-    public Malte(TipoMalte tipo, Boolean temEnzima, Boolean temLevedura) {
+    public Malte(TipoMalte tipo, boolean temEnzima, boolean temLevedura) {
         this.tipo = tipo;
         this.temEnzima = temEnzima;
         this.temLevedura = temLevedura;
     }
 
     private TipoMalte tipo;
-    private Boolean temEnzima;
-    private Boolean temLevedura;
+    private boolean temEnzima;
+    private boolean temLevedura;
 
     public TipoMalte getTipo() {
         return tipo;
@@ -23,19 +23,19 @@ public class Malte {
         this.tipo = tipo;
     }
 
-    public Boolean getTemEnzima() {
+    public boolean getTemEnzima() {
         return temEnzima;
     }
 
-    public void setTemEnzima(Boolean temEnzima) {
+    public void setTemEnzima(boolean temEnzima) {
         this.temEnzima = temEnzima;
     }
 
-    public Boolean getTemLevedura() {
+    public boolean getTemLevedura() {
         return temLevedura;
     }
 
-    public void setTemLevedura(Boolean temLevedura) {
+    public void setTemLevedura(boolean temLevedura) {
         this.temLevedura = temLevedura;
     }
 }
